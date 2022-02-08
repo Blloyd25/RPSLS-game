@@ -21,11 +21,15 @@ class Game:
     
     def play(self):
         self.confirm_play()
-        
         self.play_round()  # After testing this needs to be put in a while loop, wile self.player_one.wins < 2 and self.player_two.wins < 2:
+        while self.player_one.wins or self.player_two.wins < 2:
+        
+         self.play_round()
+        if self.player_one.wins > 2: 
+                print('player one wins')
        
-       
-       
+        if self.player_two.wins > 2: 
+            print('player two wins')
        
         # if result == 0:
         #         print('Its a tie')
@@ -50,25 +54,24 @@ class Game:
         elif (self.player_one.chosen_gesture == 0) and (self.player_two.chosen_gesture == 2 or self.player_two.chosen_gesture == 3):
             print("player one wins this round ")
             self.player_one.wins += 1
-        elif (self.player_one.chosen_gesture == 0) and (self.player_two.chosen_gesture == 2 or self.player_two.chosen_gesture == 3):
+        elif (self.player_one.chosen_gesture == 1) and (self.player_two.chosen_gesture == 0 or self.player_two.chosen_gesture == 4):
             print("player one wins this round ")
             self.player_one.wins += 1
+        elif (self.player_one.chosen_gesture == 2) and (self.player_two.chosen_gesture == 1 or self.player_two.chosen_gesture == 3):
+            print("player one wins this round ")
+            self.player_one.wins += 1    
+        elif (self.player_one.chosen_gesture == 3) and (self.player_two.chosen_gesture == 4 or self.player_two.chosen_gesture == 1):
+            print("player one wins this round ")
+            self.player_one.wins += 1    
+        elif (self.player_one.chosen_gesture == 4) and (self.player_two.chosen_gesture == 0 or self.player_two.chosen_gesture == 2):
+            print("player one wins this round ")
+            self.player_one.wins += 1      
         else:
             print("player 2 wins this hand")
             print(f'{self.player_two.name} won the round with {self.player_two.chosen_gesture} ')
             self.player_two.wins += 1
         
         
-         or (self == 1 and playerone == 0,4) or
-         
-          (self == 2 and playerone == 1,3)or 
-          
-          (self == 3 and playerone == 4,1) or 
-          
-          (self == 4 and playerone == 2,0):
-            if self == playerone:
-                print('Its a tie.')
-          
     def play_best_of(playerone_wins,playertwo_wins, computer_wins):
 
 
@@ -99,18 +102,8 @@ class Game:
             elif playerone_wins or playertwo_wins or computer_wins:
                 return (1, playerone_wins, playertwo_wins, computer_wins)
             return (-1, playerone_wins, playertwo_wins, computer_wins)
-            
-
-class player_input:
-    rock = 0 
-    paper = 1
-    cissors = 2
-    lizard = 3
-    spock = 4
-    
-Win_conditions = {player_input.rock: [player_input.lizard, player_input.paper], player_input.paper: [player_input.spock, player_input.rock], player_input.scissors: [player_input.lizard, player_input.paper], player_input.lizard: [player_input.spock, player_input.paper], player_input.spock: [player_input.scissors, player_input.rock]}
-
-
-
+         
+ 
+         
 
 
