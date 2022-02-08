@@ -101,6 +101,14 @@ class Game:
             return (-1, playerone_wins, playertwo_wins, computer_wins)
             
 
+class player_input:
+    rock = 0 
+    paper = 1
+    cissors = 2
+    lizard = 3
+    spock = 4
+    
+Win_conditions = {player_input.rock: [player_input.lizard, player_input.paper], player_input.paper: [player_input.spock, player_input.rock], player_input.scissors: [player_input.lizard, player_input.paper], player_input.lizard: [player_input.spock, player_input.paper], player_input.spock: [player_input.scissors, player_input.rock]}
 
 
 
