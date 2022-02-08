@@ -21,7 +21,8 @@ class Game:
     
     def play(self):
         self.confirm_play()
-        self.play_round()
+        
+        self.play_round()  # After testing this needs to be put in a while loop, wile self.player_one.wins < 2 and self.player_two.wins < 2:
        
        
        
