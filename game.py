@@ -1,7 +1,8 @@
 import random
 from computer import Computer
 from playerone import Playerone
-from playertwo import Playertwo
+from playertwo import Playertwo, player_two_win
+import math
 class Game:
 
     def rules_of_game(self):
@@ -17,35 +18,58 @@ class Game:
             print('Good luck') + {Playerone.__name__} + 'and' + {Playertwo.__name__}('to you both and lets find us a champion!')
 
 
-    def user_choice(playerone,playertwo,computer):
-        print({Playerone.chosen_gesture}) or ({Playertwo.chosen_gesture})
+
+    def user_choice(playerone,playertwo):
+        print({playerone.chosen_gesture}) or ({playertwo.chosen_gesture})
 
     def computer_player(self):
         self.move = random.choice(Computer.list_of_gestures)
         print('Computer has selected' + {Computer.choosen_gesture})
+    
+    def play():
+
           
-    def begin_round():
-
-        pass
-
-    def is_win (playerone, playertwo, computer,self):
-        if playerone > computer:
-            print('You have won the best of 3 games!')
-        if playertwo > computer:
-            print('You have won the best of 3 games!')
-        if playerone > playertwo:  
-            print('You have won the best of 3 games!')
-        if playertwo > playerone:
-            print('You have won the best of 3 games!')
+        def play_best_of(playerone_wins,playertwo_wins, computer_wins):
 
 
-        if playerone == computer:
-            return (0, playerone, playertwo, computer)
-        if playerone == playertwo:
-            return (0, playerone, playertwo, computer)
+            while playerone_wins < wins_needed and computer_wins < wins_needed and playertwo_wins < wins_needed:
 
-        if self(playerone, playertwo, computer):
-            return (1, playerone, playertwo, computer)
+                playerone_wins = 0
+                playertwo_wins = 0
+                computer_wins = 0
+                wins_needed = 3
+                result, playerone_wins, playertwo_wins, computer_wins = play()
 
-        return (-1, playerone, playertwo, computer)
-pass
+            if result == 0:
+                print('Its a tie')
+
+            if result ==1: 
+                playertwo_wins += 1
+                print('player 2 wins!') 
+
+            if result == 1:
+                playerone_wins += 1
+                print('You won GG!')
+            if result == 1:
+                computer_wins += 1
+                print('Computer wins')
+
+            if playerone_wins > wins_needed:
+                print('You have won the best of 3 games!')
+
+            if playertwo_wins > wins_needed:
+                print('You have won the best of 3 games!')
+
+            if computer_wins >  wins_needed:  
+                print('You have won the best of 3 games!')
+
+
+            elif playerone_wins == computer_wins:
+                return (0, playerone_wins, playertwo_wins, computer_wins)
+
+            elif playerone_wins == playertwo_wins:
+                return (0, playerone_wins, playertwo_wins, computer_wins)
+
+            elif playerone_wins or playertwo_wins or computer_wins:
+                return (1, playerone_wins, playertwo_wins, computer_wins)
+            return (-1, playerone_wins, playertwo_wins, computer_wins)
