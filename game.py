@@ -1,5 +1,4 @@
 import random
-
 from computer import Computer
 from playerone import Playerone
 from playertwo import Playertwo
@@ -13,49 +12,23 @@ class Game:
     def confirm_play(user_input):
         user_input = input('Please select how many players will be playing in todays game')
         if user_input == 1:
-            print('This game will be best of three good luck!')
+            print('good luck') + {Playerone.__name__} + ('dont underestimate this computer!')
         if user_input == 2:
-            print('Good luck to you both and lets find us a champion!')
+            print('Good luck') + {Playerone.__name__} + 'and' + {Playertwo.__name__}('to you both and lets find us a champion!')
 
-    def begin_round():
 
-        pass
-
-    def user_choice(playerone,playertwo,computer, user_move):
-        user_move = {Playerone.chosen_gesture} or {Playertwo.chosen_gesture}
+    def user_choice(playerone,playertwo,computer):
+        print({Playerone.chosen_gesture}) or ({Playertwo.chosen_gesture})
 
     def computer_player(self):
         self.move = random.choice(Computer.list_of_gestures)
         print('Computer has selected' + {Computer.choosen_gesture})
-        
+          
+    def begin_round():
 
-    def player_one_win(self, playertwo, computer,opponent):
-        if (self == 0 and opponent == 2, 3) or (self == 1 and opponent == 0,4) or (self == 2 and opponent == 1,3)or (self == 3 and opponent == 4,1) or (self == 4 and opponent == 2,0):
-            if self == opponent:
-                print('It is a tie.') 
-            return True
-        else:
-            return False
+        pass
 
-    def player_two_win(self, playerone,computer,opponent):
-        if (self == 0 and opponent == 2, 3) or (self == 1 and opponent == 0,4) or (self == 2 and opponent == 1,3)or (self == 3 and opponent == 4,1) or (self == 4 and opponent == 2,0):
-            if self == opponent:
-                print('It is a tie.')
-            return True
-        else:
-            return False
-
-    def computer_win (self, playerone,playertwo,opponent):
-        if (self == 0 and opponent == 2, 3) or (self == 1 and opponent == 0,4) or (self == 2 and opponent == 1,3)or (self == 3 and opponent == 4,1) or (self == 4 and opponent == 2,0):
-            if self == opponent:
-                print('It is a tie.')
-            return True
-        else:
-            return False
-
-
-
-    def is_win (playerone, playertwo, computer):
+    def is_win (playerone, playertwo, computer,self):
         if playerone > computer:
             print('You have won the best of 3 games!')
         if playertwo > computer:
@@ -71,7 +44,8 @@ class Game:
         if playerone == playertwo:
             return (0, playerone, playertwo, computer)
 
-        if Self(playerone, playertwo, computer):
+        if self(playerone, playertwo, computer):
             return (1, playerone, playertwo, computer)
 
         return (-1, playerone, playertwo, computer)
+pass
