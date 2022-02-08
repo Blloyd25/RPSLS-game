@@ -1,34 +1,35 @@
 import random
+
 from computer import Computer
 from playerone import Playerone
 from playertwo import Playertwo
+class Game:
 
-def rules_of_game():
+    def rules_of_game(self):
 
-    greeting = input(' Welcome to RPSLS its a very nerdy game ')
-    rules = input('The rules are as follows: Rock crushes Scissors, Scissors cuts Paper, Paper covers Rock, Rock crushes Lizard, Lizard poisons Spock, Spock smashes Scissors, Scissors decapitates Lizard, Lizard eats Paper, Paper disproves Spock, Spock vaporizes Rock ')
-    
+        self.welcome =input(' Welcome to RPSLS its a very nerdy game ')
+        self.rules = input('The rules are as follows: Rock crushes Scissors, Scissors cuts Paper, Paper covers Rock, Rock crushes Lizard, Lizard poisons Spock, Spock smashes Scissors, Scissors decapitates Lizard, Lizard eats Paper, Paper disproves Spock, Spock vaporizes Rock ')
+   
+    def confirm_play(user_input):
+        user_input = input('Please select how many players will be playing in todays game')
+        if user_input == 1:
+            print('This game will be best of three good luck!')
+        if user_input == 2:
+            print('Good luck to you both and lets find us a champion!')
 
+    def begin_round():
 
-def confirm_play(user_input):
-    user_input = input('Please select how many players will be playing in todays game')
-    if user_input == 1:
-        print('This game will be best of three good luck!')
-    if user_input == 2:
-        print('Good luck to you both and lets find us a champion!')
+        pass
 
-def begin_round():
+    def user_choice(playerone,playertwo,computer, user_move):
+        user_move = {Playerone.chosen_gesture} or {Playertwo.chosen_gesture}
 
-    pass
+    def computer_player(self):
+        self.move = random.choice(Computer.list_of_gestures)
+        print('Computer has selected' + {Computer.choosen_gesture})
+        
 
-def user_choice(player_one,player_two,computer):
-    pass
-
-def computer_player(self):
-    self.move = random.choice(Computer.list_of_gestures)
-    pass
-
-def player_one_win(self, player_two, computer,opponent):
+    def player_one_win(self, playertwo, computer,opponent):
         if (self == 0 and opponent == 2, 3) or (self == 1 and opponent == 0,4) or (self == 2 and opponent == 1,3)or (self == 3 and opponent == 4,1) or (self == 4 and opponent == 2,0):
             if self == opponent:
                 print('It is a tie.') 
@@ -36,7 +37,7 @@ def player_one_win(self, player_two, computer,opponent):
         else:
             return False
 
-def player_two_win(self, player_one,computer,move,opponent):
+    def player_two_win(self, playerone,computer,opponent):
         if (self == 0 and opponent == 2, 3) or (self == 1 and opponent == 0,4) or (self == 2 and opponent == 1,3)or (self == 3 and opponent == 4,1) or (self == 4 and opponent == 2,0):
             if self == opponent:
                 print('It is a tie.')
@@ -44,7 +45,7 @@ def player_two_win(self, player_one,computer,move,opponent):
         else:
             return False
 
-def computer_win (self, player_one,player_two,move,opponent):
+    def computer_win (self, playerone,playertwo,opponent):
         if (self == 0 and opponent == 2, 3) or (self == 1 and opponent == 0,4) or (self == 2 and opponent == 1,3)or (self == 3 and opponent == 4,1) or (self == 4 and opponent == 2,0):
             if self == opponent:
                 print('It is a tie.')
@@ -54,17 +55,23 @@ def computer_win (self, player_one,player_two,move,opponent):
 
 
 
-def is_win (playerone, playertwo, computer):
-    if playerone or playertwo > computer:
-        print('You have won the best of 3 games! What a champ')
-    else:
-        print('Unfortunately, the computer has won the best of 3 games. Better luck next time!')
+    def is_win (playerone, playertwo, computer):
+        if playerone > computer:
+            print('You have won the best of 3 games!')
+        if playertwo > computer:
+            print('You have won the best of 3 games!')
+        if playerone > playertwo:  
+            print('You have won the best of 3 games!')
+        if playertwo > playerone:
+            print('You have won the best of 3 games!')
 
-    if playerone or playertwo == computer:
-        return (0, playerone, playertwo, computer)
-   
-    if is_win(playerone, playertwo, computer):
-        return (1, playerone, playertwo, computer)
 
-    return (-1, playerone, playertwo, computer)
-pass
+        if playerone == computer:
+            return (0, playerone, playertwo, computer)
+        if playerone == playertwo:
+            return (0, playerone, playertwo, computer)
+
+        if Self(playerone, playertwo, computer):
+            return (1, playerone, playertwo, computer)
+
+        return (-1, playerone, playertwo, computer)
